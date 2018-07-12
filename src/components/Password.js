@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import TextField from 'material-ui/TextField';
 import RaisedButton from 'material-ui/RaisedButton';
+import fns from './utils/utilityfunctions';
 
 export default class Password extends Component {
     constructor(props) {
@@ -15,17 +16,8 @@ export default class Password extends Component {
         this.setState({[property]: e.target.value})
     }
 
-    // update
-    usernameCheck() {
-        return true;
-    }
-    // update
-    passwordCheck() {
-        return true;
-    }
-
     createPassword() {
-        if (this.usernameCheck() && this.passwordCheck()) {
+        if (fns.usernameCheck(this.state.username) && fns.passwordCheck(this.state.password)) {
             alert('Username and password created')
         } else {
             alert('Please follow instructions when creating a username and password')
